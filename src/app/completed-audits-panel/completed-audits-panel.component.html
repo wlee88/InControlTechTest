@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Department</th>
+      <th>Completed Audits</th>    
+      <th>Pass To Fail Ratio</th>  
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let audit of audits">
+      <td> {{ audit.department }} </td>
+      <td> {{ audit.completed }} </td>
+      <td> Pass to fail ratio </td>
+    </tr>
+  </tbody>
+</table>

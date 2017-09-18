@@ -8,6 +8,8 @@ import { AuditService } from "app/services/audit.service";
 import { CompletedAuditsMainComponent } from './completed-audits-main/completed-audits-main.component';
 import { AuditPanelComponent } from './audit-panel/audit-panel.component';
 import { AuditFiltersPanelComponent } from './audit-filters-panel/audit-filters-panel.component';
+import { CompletedAuditsPanelComponent } from './completed-audits-panel/completed-audits-panel.component';
+import { CompletedAuditsPanelItemComponent } from './completed-audits-panel-item/completed-audits-panel-item.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { AuditFiltersPanelComponent } from './audit-filters-panel/audit-filters-
     NavbarComponent,
     CompletedAuditsMainComponent,
     AuditPanelComponent,
-    AuditFiltersPanelComponent
+    AuditFiltersPanelComponent,
+    CompletedAuditsPanelComponent,
+    CompletedAuditsPanelItemComponent
      ],
   imports: [
     BrowserModule,
