@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterContentInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterContentInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { CategoryService, CategoryResponseObject } from "app/services/category.service";
 import { AuditService, AuditResponse } from "app/services/audit.service";
 import { Moment } from "moment/moment";
@@ -10,9 +10,12 @@ import { Moment } from "moment/moment";
 })
 export class AuditFiltersPanelComponent implements OnInit, AfterViewInit {
   
+  @ViewChild("form") form;
+  @Output() change = new EventEmitter();
+
   fromDate: string;
   toDate:string;
-  @ViewChild("form") form;
+
   auditResponse: AuditResponse;
   categoryData: CategoryResponseObject;
   
@@ -35,24 +38,11 @@ export class AuditFiltersPanelComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.form.control.valueChanges
-      .subscribe(values => this.onFormChange(values));
+      .subscribe(values =>this.change.emit(values));
   }
-
-  onFormChange(auditFilterForm:AuditFilterForm) {
-    if (auditFilterFormFields.category == 1) {
-      this.auditService.getCompletedAudits(auditFilterFormFields.fromDate.valueOf(),
-        auditFilterFormFields.toDate.valueOf())
-        .subscribe(response => {
-          this.auditResponse = response.json();
-          
-        });
-    } 
-    
-  }
-
 }
 
-interface AuditFilterForm {
+export interface AuditFiltersFormEventArgs {
   toDate:any,
   fromDate:Moment,
   category: number

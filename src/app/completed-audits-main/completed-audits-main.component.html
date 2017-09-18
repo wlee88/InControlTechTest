@@ -6,7 +6,7 @@
       <audit-panel label="Expired Audits" figure="0"></audit-panel>
   </div>
   <div class="row">
-    <audit-filters-panel></audit-filters-panel>
+    <audit-filters-panel (change)="onAuditFiltersPanelChange($event)"></audit-filters-panel>
   </div>
 
   <div class="row">
