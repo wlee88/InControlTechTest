@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./audit-panel.component.css']
 })
 export class AuditPanelComponent implements OnInit {
-  @Input() figure:string;
+  @Input() figure:string= "0";
   @Input() label:string;
   @Input() isActive:Boolean;
 

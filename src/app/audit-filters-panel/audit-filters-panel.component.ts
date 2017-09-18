@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService, CategoryResponseObject } from "app/services/category.service";
 
 @Component({
   selector: 'audit-filters-panel',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./audit-filters-panel.component.css']
 })
 export class AuditFiltersPanelComponent implements OnInit {
-
-  constructor() { }
+  categoryData:CategoryResponseObject;
+  
+  constructor(private categoryService:CategoryService) { }
 
   ngOnInit() {
+    this.categoryService.getAll().subscribe((response) => {
+      this.categoryData = response.json();
+    });
   }
 
 }
