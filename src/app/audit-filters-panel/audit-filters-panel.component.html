@@ -2,9 +2,9 @@
     <div class="panel-body filters-panel">
             <div class="form-group">
                 <label for="from">From: </label>
-                <input ngModel name="from" id="from"/>
+                <input [(ngModel)]="fromDate" name="from" id="from" />
                 <label for="to">To: </label>
-                <input ngModel name="to" id="from"/>
+                <input [(ngModel)]="toDate" name="to" id="to" />
             </div>
             <div class="form-group">
                 <label for="from">Category: </label>
