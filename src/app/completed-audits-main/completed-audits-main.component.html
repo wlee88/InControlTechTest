@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
       <audit-panel label="Score" figure="No data"></audit-panel>
-      <audit-panel label="Completed Audits" figure="3333" isActive="true"></audit-panel>
+      <audit-panel label="Completed Audits" [figure]="completedAuditsData?.TotalAuditCount" isActive="true"></audit-panel>
       <audit-panel label="Expected Audits" figure="0"></audit-panel>
       <audit-panel label="Expired Audits" figure="0"></audit-panel>
   </div>

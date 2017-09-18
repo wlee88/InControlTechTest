@@ -11,9 +11,8 @@ import { AuditFiltersFormEventArgs } from 'app/audit-filters-panel/audit-filters
 })
 
 export class CompletedAuditsMainComponent implements OnInit {
-  completedAuditsCount:Number = 0;  
   categoryData:CategoryResponseObject;
-  auditFiltersFormEventArgs: AuditFiltersFormEventArgs;
+  completedAuditsData: AuditFiltersFormEventArgs;
 
   constructor(private auditService: AuditService) { }
 
@@ -22,14 +21,13 @@ export class CompletedAuditsMainComponent implements OnInit {
   }
 
   onAuditFiltersPanelChange(auditFiltersFormEventArgs: AuditFiltersFormEventArgs) {
-    this.auditFiltersFormEventArgs = auditFiltersFormEventArgs;
     let category = auditFiltersFormEventArgs.category;
     if (category && category !=  undefined && category != null) {
       this.auditService.getCompletedAudits(auditFiltersFormEventArgs.fromDate.valueOf(),
         auditFiltersFormEventArgs.toDate.valueOf())
         .subscribe(response => {
-          this.auditFiltersFormEventArgs = response.json();
-          console.log(this.auditFiltersFormEventArgs);
+          this.completedAuditsData = response.json();
+          console.log(this.completedAuditsData);
         });
     } 
   }
