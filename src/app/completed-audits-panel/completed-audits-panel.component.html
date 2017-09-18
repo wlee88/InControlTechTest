@@ -7,9 +7,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let audit of audits">
-      <td> {{ completedAudits.department }} </td>
-      <td> {{ completedAudits.completed }} </td>
+    <tr *ngFor="let audit of completedAudits">
+      <td> {{ audit.department }} </td>
+      <td> {{ audit.completed }} </td>
       <td> Pass to fail ratio </td>
     </tr>
   </tbody>
