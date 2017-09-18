@@ -9,7 +9,7 @@ export class AuditService implements OnInit {
    ngOnInit(): void {
     throw new Error("Method not implemented.");
   }
-  getCompletedAuditsCount(startMilis: Number, endMillis: Number) {
+  getCompletedAudits(startMilis: Number, endMillis: Number) {
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let requestData = { "UserId": 1, "StartMillis": 2, "EndMillis": 3 };
     let options = new RequestOptions({ headers: headers });
@@ -17,3 +17,29 @@ export class AuditService implements OnInit {
     return this.http.post(this.url, requestData, options);
   }
 }
+
+/* Sample response data */
+
+/*
+{
+  "TotalPassedAuditCount": 1,
+  "TotalFailedAuditCount": 2,
+  "TotalAuditCount": 3,
+  "Items": [
+    {
+      "CategoryId": 1,
+      "CategoryName": "sample string 2",
+      "PassedAuditCount": 3,
+      "FailedAuditCount": 4,
+      "CompletedAuditCount": 5
+    },
+    {
+      "CategoryId": 1,
+      "CategoryName": "sample string 2",
+      "PassedAuditCount": 3,
+      "FailedAuditCount": 4,
+      "CompletedAuditCount": 5
+    }
+  ]
+}
+*/
