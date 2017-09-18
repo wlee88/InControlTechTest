@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
+import { DatePickerModule } from 'angular-io-datepicker/src/datepicker';
+import { OverlayModule } from 'angular-io-overlay/src/overlay';
 
 
 import { AppComponent } from './app.component';
@@ -29,6 +31,8 @@ import { CategoryService } from "app/services/category.service";
     BrowserModule,
     FormsModule,
     HttpModule,
+    OverlayModule,
+    DatePickerModule,
     RouterModule.forRoot([
       { path: '', component: CompletedAuditsMainComponent }
     ])

@@ -1,0 +1,15 @@
+.date-label {
+    display: inline-block;
+}
+
+date-picker {
+    display: inline-block;
+}
+
+.date-container {
+    display: inline-block;
+}
+
+.to-date-field {
+    margin-left: 20px;
+}
