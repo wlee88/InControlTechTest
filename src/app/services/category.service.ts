@@ -7,6 +7,8 @@ export class CategoryService {
   constructor(private http:Http) { }
 
   getAll() {
-    this.http.get(this.url);
+    return this.http.post(this.url, 
+      {"UserId":"1","CategoryId":"1","LoadAttributes":true}
+    );
   }
 }
