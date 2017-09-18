@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./completed-audits-main.component.css']
 })
 export class CompletedAuditsMainComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {

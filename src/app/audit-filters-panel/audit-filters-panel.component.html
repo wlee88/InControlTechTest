@@ -1,17 +1,20 @@
-<div class="panel-body filters-panel">
-    <form #f>
-        <div class="form-group">
-            <label for="from">From: </label>
-            <input ngModel name="from" id="from"/>
-            <label for="to">To: </label>
-            <input ngModel name="to" id="from"/>
-        </div>
-        <div class="form-group">
-            <label for="from">Category: </label>
-            <select ngModel name="category" id="category">
-                <option value="All Categories"></option>
-                <option value="NSW">NSW</option>
-            </select>
-        </div>
-    </form>
-</div>
+<form #f="ngForm">
+    <div class="panel-body filters-panel">
+    
+            <div class="form-group">
+                <label for="from">From: </label>
+                <input ngModel name="from" id="from"/>
+                <label for="to">To: </label>
+                <input ngModel name="to" id="from"/>
+            </div>
+            <div class="form-group">
+                <label for="from">Category: </label>
+                <select ngModel name="category" id="category">
+                    <option value="0">All Categories</option>
+                    <option value="1">NSW</option>
+                </select>
+            </div>
+
+    </div>
+</form>
+{{ f.value | json}}
