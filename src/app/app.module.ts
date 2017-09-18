@@ -13,6 +13,7 @@ import { AuditPanelComponent } from './audit-panel/audit-panel.component';
 import { AuditFiltersPanelComponent } from './audit-filters-panel/audit-filters-panel.component';
 import { CompletedAuditsPanelComponent } from './completed-audits-panel/completed-audits-panel.component';
 import { CompletedAuditsPanelItemComponent } from './completed-audits-panel-item/completed-audits-panel-item.component';
+import { CategoryService } from "app/services/category.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CompletedAuditsPanelItemComponent } from './completed-audits-panel-item
     ])
   ],
   providers: [
-    AuditService
+    AuditService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

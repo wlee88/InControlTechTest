@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from "@angular/http";
+import { Http, RequestOptions, Headers } from "@angular/http";
 
 @Injectable()
 export class CategoryService {
@@ -7,8 +7,10 @@ export class CategoryService {
   constructor(private http:Http) { }
 
   getAll() {
-    return this.http.post(this.url, 
-      {"UserId":"1","CategoryId":"1","LoadAttributes":true}
-    );
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let requestData = { "UserId":"1","CategoryId":"1","LoadAttributes":true };
+
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.url, requestData, options);
   }
 }
