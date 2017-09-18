@@ -9,15 +9,28 @@ export class AuditService implements OnInit {
    ngOnInit(): void {
     throw new Error("Method not implemented.");
   }
-  getCompletedAudits(startMilis: Number, endMillis: Number) {
+  getCompletedAudits(startMilis: number, endMillis: number) {
     let headers = new Headers({ 'Content-Type': 'application/json'});
-    let requestData = { "UserId": 1, "StartMillis": 2, "EndMillis": 3 };
+    let requestData = { "UserId": 1, "StartMillis": startMilis, "EndMillis": endMillis };
     let options = new RequestOptions({ headers: headers });
 
     return this.http.post(this.url, requestData, options);
   }
 }
 
+export interface AuditItem {
+  CategoryId: Number,
+  CategoryName: String,
+  CompletedAuditCount: Number,
+  FailedAuditCount: Number,
+  PassedAuditCount: Number
+}
+
+export interface AuditResponse {
+  TotalPassedAuditCount: Number,
+  TotalFailedAuditCount: Number,
+  Items: Array<AuditItem>
+}
 /* Sample response data */
 
 /*
