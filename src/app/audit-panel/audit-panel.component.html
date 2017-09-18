@@ -1,8 +1,8 @@
 <div class="col-md-3">
-    <div class="panel audit-panel green js-auditPanel active" id="greenPanelButton">
+    <div class="panel audit-panel green js-auditPanel" [class.active]="isActive" id="greenPanelButton">
         <div class="panel-body">
-            <div class="audit-figure" id="greenPanelValue">0</div>
-            <div class="audit-label">Completed Audits</div>
+            <div class="audit-figure" id="greenPanelValue"> {{ figure }} </div>
+            <div class="audit-label"> {{ label }}</div>
         </div>
     </div>
 </div>

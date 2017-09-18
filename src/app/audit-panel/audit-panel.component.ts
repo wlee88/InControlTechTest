@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'audit-panel',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./audit-panel.component.css']
 })
 export class AuditPanelComponent implements OnInit {
+  @Input() figure:string;
+  @Input() label:string;
+  @Input() isActive:Boolean;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
