@@ -6,13 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./completed-audits-panel.component.css']
 })
 export class CompletedAuditsPanelComponent implements OnInit {
-  audits: any[];
+  completedAudits: any[];
   constructor() {
-    this.audits = [];
+    this.completedAudits = [];
    }
 
   ngOnInit() {
-    this.audits.push({
+    this.completedAudits.push({
       department: "test department",
       completed: 32
     }, {
