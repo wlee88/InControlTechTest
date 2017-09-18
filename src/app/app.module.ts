@@ -7,13 +7,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuditService } from "app/services/audit.service";
 import { CompletedAuditsMainComponent } from './completed-audits-main/completed-audits-main.component';
 import { AuditPanelComponent } from './audit-panel/audit-panel.component';
+import { AuditFiltersPanelComponent } from './audit-filters-panel/audit-filters-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     CompletedAuditsMainComponent,
-    AuditPanelComponent
+    AuditPanelComponent,
+    AuditFiltersPanelComponent
      ],
   imports: [
     BrowserModule,
