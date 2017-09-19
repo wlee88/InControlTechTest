@@ -8,9 +8,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let audit of completedAudits">
-      <td> {{ audit.department }} </td>
-      <td> {{ audit.completed }} </td>
-      <td> Pass to fail ratio </td>
+      <td> {{ audit.CategoryName }} </td>
+      <td> {{ audit.CompletedAuditCount }} </td>
+      <td> <progress-bar [pass-value]="audit.PassedAuditCount" [total-value]="audit.CompletedAuditCount"></progress-bar> </td>
     </tr>
   </tbody>
 </table>

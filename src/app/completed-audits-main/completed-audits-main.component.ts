@@ -21,10 +21,15 @@ export class CompletedAuditsMainComponent implements OnInit {
   }
 
   onAuditFiltersPanelChange(auditFiltersFormEventArgs: AuditFiltersFormEventArgs) {
-    let category = auditFiltersFormEventArgs.category;
-    if (category && category !=  undefined && category != null) {
-      this.auditService.getCompletedAudits(auditFiltersFormEventArgs.fromDate.valueOf(),
-        auditFiltersFormEventArgs.toDate.valueOf())
+    console.log("recieved audit filters form event args", auditFiltersFormEventArgs);
+
+    let category = auditFiltersFormEventArgs.category,
+        fromDate = auditFiltersFormEventArgs.fromDate,
+          toDate = auditFiltersFormEventArgs.toDate;
+          
+    if (category && fromDate && toDate) {
+      this.auditService.getCompletedAudits(fromDate.unix(),
+       toDate.unix())
         .subscribe(response => {
           this.completedAuditsData = response.json();
           console.log(this.completedAuditsData);

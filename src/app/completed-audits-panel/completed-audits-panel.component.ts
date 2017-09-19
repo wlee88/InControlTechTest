@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AuditItem } from "app/services/audit.service";
 
 @Component({
   selector: 'completed-audits-panel',
@@ -6,19 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./completed-audits-panel.component.css']
 })
 export class CompletedAuditsPanelComponent implements OnInit {
-  completedAudits: any[];
-  constructor() {
-    this.completedAudits = [];
-   }
+  @Input("completed-audits") completedAudits: AuditItem[];
+  constructor() { }
 
   ngOnInit() {
-    this.completedAudits.push({
-      department: "test department",
-      completed: 32
-    }, {
-      department: "test department2",
-      completed: 54
-    })
+    
   }
 
 }

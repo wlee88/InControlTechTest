@@ -2,21 +2,21 @@
     <div class="panel-body filters-panel">
             <div class="form-group date-container from-date-field">
                 <span class="date-label">From</span>
-                    <date-picker [(ngModel)]="fromDate" name="fromDate" [showClearButton]="false"
-                        format="DD-MM-YYYY" ></date-picker>
+                    <date-picker ngModel name="fromDate" [showClearButton]="false"
+                        format="DD-MM-YYYY" [(ngModel)]="fromDate"></date-picker>
             </div>
             <div class="form-group date-container to-date-field">
                 <span class="date-label">To</span>
-                    <date-picker [(ngModel)]="toDate" name="toDate" [showClearButton]="false"
-                        format="DD-MM-YYYY" ></date-picker>
+                    <date-picker ngModel name="toDate" [showClearButton]="false"
+                        format="DD-MM-YYYY" id="toDate" [(ngModel)]="toDate"></date-picker>
             </div>
 
 
             <div class="form-group">
                 <label for="from">Category: </label>
-                <select ngModel name="category" id="category" *ngIf="categoryData">
-                    <option value="0" selected>All Categories</option>
-                    <option [value]="categoryData.CategoryId">{{ categoryData.Name }}</option>
+                <select [(ngModel)]="selectedCategoryValue" name="category" id="category">
+                    <option value="0">All Categories</option>
+                    <option [value]="categoryData?.CategoryId" [attr.selected]="true">{{ categoryData?.Name }}</option>
                 </select>
             </div>
 

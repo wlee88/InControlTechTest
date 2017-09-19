@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterContentInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { CategoryService, CategoryResponseObject } from "app/services/category.service";
 import { AuditService, AuditResponse } from "app/services/audit.service";
-import { Moment } from "moment/moment";
-
+import { Moment } from "moment"
+import * as moment from 'moment';
 @Component({
   selector: 'audit-filters-panel',
   templateUrl: './audit-filters-panel.component.html',
@@ -13,8 +13,9 @@ export class AuditFiltersPanelComponent implements OnInit, AfterViewInit {
   @ViewChild("form") form;
   @Output() change = new EventEmitter();
 
-  fromDate: string;
-  toDate:string;
+  fromDate;
+  toDate;
+  selectedCategoryValue = 0;
 
   auditResponse: AuditResponse;
   categoryData: CategoryResponseObject;
@@ -23,22 +24,25 @@ export class AuditFiltersPanelComponent implements OnInit, AfterViewInit {
   constructor(private categoryService:CategoryService, private auditService: AuditService) { }
 
   ngOnInit() {
-    // todo: move this to utilities service
     let dt = new Date();
     let year = dt.getFullYear(), month = dt.getMonth();
     let format = "dd/mm/yyyy";
 
-    this.fromDate = new Date().toString();
-    this.toDate = new Date(year, month + 1, 0).toDateString();
+    this.fromDate = moment().startOf('month');
+    this.toDate = moment().endOf('month');
+    
+  }
+
+  ngAfterViewInit() {
+        // todo: move this to utilities service
+    
 
     this.categoryService.getAll().subscribe((response) => {
       this.categoryData = response.json();
     });
-  }
-
-  ngAfterViewInit() {
+    
     this.form.control.valueChanges
-      .subscribe(values =>this.change.emit(values));
+      .subscribe(values => {this.change.emit(values); console.log("emmitting", values)});
   }
 }
 

@@ -16,6 +16,7 @@ import { AuditFiltersPanelComponent } from './audit-filters-panel/audit-filters-
 import { CompletedAuditsPanelComponent } from './completed-audits-panel/completed-audits-panel.component';
 import { CompletedAuditsPanelItemComponent } from './completed-audits-panel-item/completed-audits-panel-item.component';
 import { CategoryService } from "app/services/category.service";
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CategoryService } from "app/services/category.service";
     AuditPanelComponent,
     AuditFiltersPanelComponent,
     CompletedAuditsPanelComponent,
-    CompletedAuditsPanelItemComponent
+    CompletedAuditsPanelItemComponent,
+    ProgressBarComponent
      ],
   imports: [
     BrowserModule,
