@@ -9,7 +9,7 @@ export class AuditService implements OnInit {
    ngOnInit(): void {
     throw new Error("Method not implemented.");
   }
-  getCompletedAudits(startMilis: number, endMillis: number) {
+  getCompletedAudits(startMilis: string, endMillis: string) {
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let requestData = { "UserId": 1, "StartMillis": startMilis, "EndMillis": endMillis };
     let options = new RequestOptions({ headers: headers });

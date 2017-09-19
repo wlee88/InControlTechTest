@@ -27,9 +27,9 @@ export class CompletedAuditsMainComponent implements OnInit {
         fromDate = auditFiltersFormEventArgs.fromDate,
           toDate = auditFiltersFormEventArgs.toDate;
           
-    if (category && fromDate && toDate) {
-      this.auditService.getCompletedAudits(fromDate.unix(),
-       toDate.unix())
+    if (fromDate && toDate) {
+      this.auditService.getCompletedAudits(fromDate.format('x'),
+       toDate.format('x'))
         .subscribe(response => {
           this.completedAuditsData = response.json();
           console.log(this.completedAuditsData);
