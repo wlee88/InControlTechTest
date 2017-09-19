@@ -14,7 +14,3 @@ date-picker {
     margin-left: 20px;
 }
 
-/* overriding datepicker attributes */
-.datepicker-actions__input {
-    font-size: 20px;
-}

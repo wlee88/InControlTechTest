@@ -9,11 +9,21 @@ export class AuditPanelComponent implements OnInit {
   @Input() figure:string= "0";
   @Input() label:string;
   @Input() isActive:Boolean;
+  @Input() color;
 
   constructor() { }
 
   ngOnInit() {
     
+  }
+
+  getColor() {
+    if (this.color) {
+      return [this.color];
+    }
+    else {
+      return [];
+    }
   }
 
 }

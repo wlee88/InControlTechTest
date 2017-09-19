@@ -21,8 +21,6 @@ export class CompletedAuditsMainComponent implements OnInit {
   }
 
   onAuditFiltersPanelChange(auditFiltersFormEventArgs: AuditFiltersFormEventArgs) {
-    console.log("recieved audit filters form event args", auditFiltersFormEventArgs);
-
     let category = auditFiltersFormEventArgs.category,
         fromDate = auditFiltersFormEventArgs.fromDate,
           toDate = auditFiltersFormEventArgs.toDate;

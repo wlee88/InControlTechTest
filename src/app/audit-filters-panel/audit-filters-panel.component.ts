@@ -38,7 +38,7 @@ export class AuditFiltersPanelComponent implements OnInit, AfterViewInit {
     });
     
     this.form.control.valueChanges
-      .subscribe(values => {this.change.emit(values); console.log("emmitting", values)});
+      .subscribe(values => this.change.emit(values));
   }
 }
 

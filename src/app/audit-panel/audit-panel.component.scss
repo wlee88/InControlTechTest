@@ -1,4 +1,13 @@
+@import "../../styles/base/_variables.scss";
+
 .audit-panel  {
+    opacity: 0.3;
+    color: $white;
+    &:hover {
+        cursor: pointer;
+        opacity: 1.0;
+    }
+    
     .audit-figure {
         font-size: 30px;
         font-weight: 500;
@@ -10,3 +19,14 @@
         text-transform: uppercase;
     }
 }
+.green { background-color: $green; }
+.blue { background-color: $blue; }
+.red {background-color: $red;}
+.yellow { background-color: $yellow;}
+.panel{
+    .panel-body {
+        background-color: inherit;
+    }
+}
+
+.active { opacity: 1.0}
