@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterContentInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterContentInit, AfterViewInit, Output, EventEmitter, Input } from '@angular/core';
 import { CategoryService, CategoryResponseObject } from "app/services/category.service";
 import { AuditService, AuditResponse } from "app/services/audit.service";
 import { Moment } from "moment"
@@ -11,6 +11,8 @@ import * as moment from 'moment';
 export class AuditFiltersPanelComponent implements OnInit, AfterViewInit {
   
   @ViewChild("form") form;
+  @Input("category-data") categoryData: CategoryResponseObject;
+
   @Output() change = new EventEmitter();
 
   fromDate;
@@ -18,7 +20,6 @@ export class AuditFiltersPanelComponent implements OnInit, AfterViewInit {
   selectedCategoryValue = 0;
 
   auditResponse: AuditResponse;
-  categoryData: CategoryResponseObject;
 
   constructor(private categoryService:CategoryService, private auditService: AuditService) { }
 
@@ -33,9 +34,6 @@ export class AuditFiltersPanelComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.categoryService.getAll().subscribe((response) => {
-      this.categoryData = response.json();
-    });
     
     this.form.control.valueChanges
       .subscribe(values => this.change.emit(values));

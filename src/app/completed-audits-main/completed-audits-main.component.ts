@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService, CategoryResponseObject } from "app/services/category.service";
 import { AuditService } from "app/services/audit.service";
 import { AuditFiltersFormEventArgs } from 'app/audit-filters-panel/audit-filters-panel.component';
+import { AppError } from "app/common/app-error";
+import { BadInputError } from "app/common/bad-input-error";
+import { NotFoundError } from "app/common/not-found-error";
 
 
 @Component({
@@ -14,10 +17,23 @@ export class CompletedAuditsMainComponent implements OnInit {
   categoryData:CategoryResponseObject;
   completedAuditsData: AuditFiltersFormEventArgs;
 
-  constructor(private auditService: AuditService) { }
+  constructor(private auditService: AuditService, private categoryService: CategoryService) { }
 
   ngOnInit() {
-
+    this.categoryService.getAll().subscribe((response) => {
+      this.categoryData = response.json();
+    },
+    (error: AppError) => {
+      if (error instanceof BadInputError) {
+        console.log("Bad Input Error", error);
+      }  
+      else if (error instanceof NotFoundError) {
+        console.log("Resource not found", error);
+      }
+      else {
+        console.log(error);
+      }
+    });
   }
 
   onAuditFiltersPanelChange(auditFiltersFormEventArgs: AuditFiltersFormEventArgs) {
@@ -30,8 +46,20 @@ export class CompletedAuditsMainComponent implements OnInit {
        toDate.format('x'))
         .subscribe(response => {
           this.completedAuditsData = response.json();
+        },(error: AppError) => {
+          if (error instanceof BadInputError) {
+            console.log("Bad Input Error", error);
+          }  
+          else if (error instanceof NotFoundError) {
+            console.log("Resource not found", error);
+          }
+          else {
+            console.log(error);
+          }
         });
     }
   }
+
+  
 
 }
