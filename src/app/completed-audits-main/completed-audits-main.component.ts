@@ -31,7 +31,7 @@ export class CompletedAuditsMainComponent implements OnInit {
         console.log("Resource not found", error);
       }
       else {
-        console.log(error);
+        throw error;
       }
     });
   }
@@ -40,21 +40,21 @@ export class CompletedAuditsMainComponent implements OnInit {
     let category = auditFiltersFormEventArgs.category,
         fromDate = auditFiltersFormEventArgs.fromDate,
           toDate = auditFiltersFormEventArgs.toDate;
-          
+
     if (fromDate && toDate) {
-      this.auditService.getCompletedAudits(fromDate.format('x'),
-       toDate.format('x'))
+      this.auditService.getCompletedAudits(fromDate.momentObj.format('x'),
+       toDate.momentObj.format('x'))
         .subscribe(response => {
           this.completedAuditsData = response.json();
         },(error: AppError) => {
           if (error instanceof BadInputError) {
             console.log("Bad Input Error", error);
-          }  
+          }
           else if (error instanceof NotFoundError) {
             console.log("Resource not found", error);
           }
           else {
-            console.log(error);
+            throw error;
           }
         });
     }

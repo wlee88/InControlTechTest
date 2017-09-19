@@ -3,6 +3,8 @@ import { CategoryService, CategoryResponseObject } from "app/services/category.s
 import { AuditService, AuditResponse } from "app/services/audit.service";
 import { Moment } from "moment"
 import * as moment from 'moment';
+import { DatePickerOptions, DateModel } from 'ng2-datepicker';
+
 @Component({
   selector: 'audit-filters-panel',
   templateUrl: './audit-filters-panel.component.html',
@@ -18,18 +20,24 @@ export class AuditFiltersPanelComponent implements OnInit, AfterViewInit {
   fromDate;
   toDate;
   selectedCategoryValue = 0;
+  fromDateOptions:DatePickerOptions;
+  toDateOptions:DatePickerOptions;
 
   auditResponse: AuditResponse;
 
-  constructor(private categoryService:CategoryService, private auditService: AuditService) { }
+  constructor(private categoryService:CategoryService, private auditService: AuditService) { 
+    this.fromDateOptions = new DatePickerOptions();
+    this.toDateOptions = new DatePickerOptions();
+  }
 
   ngOnInit() {
     let dt = new Date();
     let year = dt.getFullYear(), month = dt.getMonth();
     let format = "dd/mm/yyyy";
 
-    this.fromDate = moment().startOf('month');
-    this.toDate = moment().endOf('month');
+    this.fromDateOptions.initialDate = moment().startOf('month').toDate();
+    this.toDateOptions.initialDate = moment().endOf('month').toDate();
+    
     
   }
 
@@ -42,6 +50,6 @@ export class AuditFiltersPanelComponent implements OnInit, AfterViewInit {
 
 export interface AuditFiltersFormEventArgs {
   toDate:any,
-  fromDate:Moment,
+  fromDate:any,
   category: number
 }

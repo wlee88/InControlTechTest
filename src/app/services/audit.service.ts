@@ -38,28 +38,3 @@ export interface AuditResponse {
   TotalFailedAuditCount: Number,
   Items: Array<AuditItem>
 }
-/* Sample response data */
-
-/*
-{
-  "TotalPassedAuditCount": 1,
-  "TotalFailedAuditCount": 2,
-  "TotalAuditCount": 3,
-  "Items": [
-    {
-      "CategoryId": 1,
-      "CategoryName": "sample string 2",
-      "PassedAuditCount": 3,
-      "FailedAuditCount": 4,
-      "CompletedAuditCount": 5
-    },
-    {
-      "CategoryId": 1,
-      "CategoryName": "sample string 2",
-      "PassedAuditCount": 3,
-      "FailedAuditCount": 4,
-      "CompletedAuditCount": 5
-    }
-  ]
-}
-*/

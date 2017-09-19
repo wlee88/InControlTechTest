@@ -7,7 +7,6 @@ import { NotFoundError } from "app/common/not-found-error";
 
 
 @Injectable()
-
 export class CategoryService {
   private url:string = "http://incontrolpty.australiaeast.cloudapp.azure.com:7123/webservices/api/category";
   constructor(private http:Http) { }
@@ -25,6 +24,7 @@ export class CategoryService {
       })
   }
 }
+
 export interface CategoryResponseObject {
   CategoryId: Number,
   name: string,

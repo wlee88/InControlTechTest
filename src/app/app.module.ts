@@ -1,11 +1,9 @@
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
-import { DatePickerModule } from 'angular-io-datepicker/src/datepicker';
-import { OverlayModule } from 'angular-io-overlay/src/overlay';
-
+import { DatePickerModule } from 'ng2-datepicker';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -17,6 +15,7 @@ import { CompletedAuditsPanelComponent } from './completed-audits-panel/complete
 import { CompletedAuditsPanelItemComponent } from './completed-audits-panel-item/completed-audits-panel-item.component';
 import { CategoryService } from "app/services/category.service";
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { AppErrorHandler } from "app/common/app-error-handler";
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    OverlayModule,
     DatePickerModule,
     RouterModule.forRoot([
       { path: '', component: CompletedAuditsMainComponent }
@@ -41,7 +39,11 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
   ],
   providers: [
     AuditService,
-    CategoryService
+    CategoryService,
+    {
+      provide: ErrorHandler,
+      useClass: AppErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })
