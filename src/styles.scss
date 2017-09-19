@@ -1,7 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "styles/base/_variables.scss";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
     background-color: $main-background-color;
+    font-family: 'Open Sans','Roboto','Helvetica Neue','Segoe UI',Helvetica,Verdana,san-serif;
+}
+.panel {
+    margin-bottom: 15px;
+    .panel-body {
+        margin: 15px;
+        background-color: $panel-background-color;
+    }
 }

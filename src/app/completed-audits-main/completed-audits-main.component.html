@@ -1,15 +1,15 @@
 <div class="container">
-  <div class="row panel-body">
+  <div class="row">
       <audit-panel label="Score" figure="No data"></audit-panel>
       <audit-panel label="Completed Audits" [figure]="completedAuditsData?.TotalAuditCount" isActive="true"></audit-panel>
       <audit-panel label="Expected Audits" figure="0"></audit-panel>
       <audit-panel label="Expired Audits" figure="0"></audit-panel>
   </div>
-  <div class="row panel-body">
-    <audit-filters-panel (change)="onAuditFiltersPanelChange($event)"></audit-filters-panel>
+  <div class="row">
+      <audit-filters-panel (change)="onAuditFiltersPanelChange($event)"></audit-filters-panel>
   </div>
 
-  <div class="row panel-body">
+  <div class="row">
     <completed-audits-panel [completed-audits]="completedAuditsData?.Items"></completed-audits-panel>
-  </div>
+    </div>
 </div>
