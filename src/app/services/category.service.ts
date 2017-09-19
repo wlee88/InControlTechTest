@@ -25,10 +25,3 @@ export class CategoryService {
   }
 }
 
-export interface CategoryResponseObject {
-  CategoryId: Number,
-  name: string,
-  AttributeTypes: Array<object>,
-  DemeritStartingScore: Number,
-  DefaultTypeId: Number
-}

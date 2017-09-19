@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterContentInit, AfterViewInit, Output, EventEmitter, Input } from '@angular/core';
-import { CategoryService, CategoryResponseObject } from "app/services/category.service";
+import { CategoryService } from "app/services/category.service";
+import { CategoryResponseObject } from "app/services/category-response-object.interface"
 import { AuditService, AuditResponse } from "app/services/audit.service";
 import { Moment } from "moment"
 import * as moment from 'moment';
