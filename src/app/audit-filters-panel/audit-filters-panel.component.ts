@@ -19,7 +19,6 @@ export class AuditFiltersPanelComponent implements OnInit, AfterViewInit {
 
   auditResponse: AuditResponse;
   categoryData: CategoryResponseObject;
-  
 
   constructor(private categoryService:CategoryService, private auditService: AuditService) { }
 
@@ -34,9 +33,6 @@ export class AuditFiltersPanelComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-        // todo: move this to utilities service
-    
-
     this.categoryService.getAll().subscribe((response) => {
       this.categoryData = response.json();
     });

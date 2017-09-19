@@ -32,9 +32,8 @@ export class CompletedAuditsMainComponent implements OnInit {
        toDate.format('x'))
         .subscribe(response => {
           this.completedAuditsData = response.json();
-          console.log(this.completedAuditsData);
         });
-    } 
+    }
   }
 
 }
