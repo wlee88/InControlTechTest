@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService, CategoryResponseObject } from "app/services/category.service";
-import { AuditService } from "app/services/audit.service";
+import { CategoryService } from "app/services/category.service";
+import { AuditService, AuditResponse } from "app/services/audit.service";
 import { AuditFiltersFormEventArgs } from 'app/audit-filters-panel/audit-filters-panel.component';
 import { AppError } from "app/common/app-error";
 import { BadInputError } from "app/common/bad-input-error";
 import { NotFoundError } from "app/common/not-found-error";
+import { CategoryResponseObject } from "app/services/category-response-object.interface";
 
 
 @Component({
@@ -15,7 +16,7 @@ import { NotFoundError } from "app/common/not-found-error";
 
 export class CompletedAuditsMainComponent implements OnInit {
   categoryData:CategoryResponseObject;
-  completedAuditsData: AuditFiltersFormEventArgs;
+  completedAuditsData: AuditResponse;
 
   constructor(private auditService: AuditService, private categoryService: CategoryService) { }
 

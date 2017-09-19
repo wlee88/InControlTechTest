@@ -34,6 +34,7 @@ export interface AuditItem {
 }
 
 export interface AuditResponse {
+  TotalAuditCount: Number,
   TotalPassedAuditCount: Number,
   TotalFailedAuditCount: Number,
   Items: Array<AuditItem>
