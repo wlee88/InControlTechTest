@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'progress-bar',
   templateUrl: './progress-bar.component.html',
-  styleUrls: ['./progress-bar.component.css']
+  styleUrls: ['./progress-bar.component.scss']
 })
 export class ProgressBarComponent implements OnInit {
   @Input("pass-value") passValue:number;
@@ -16,7 +16,8 @@ export class ProgressBarComponent implements OnInit {
 
   passPercentageValue(){
     let percentage = (this.passValue / this.totalValue) * 100;
-    return `${Math.floor(percentage)}%`;
+    // return `${Math.floor(percentage)}%`;
+    return `50%`;
   }
 
 }
