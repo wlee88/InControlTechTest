@@ -42,7 +42,8 @@ export class CompletedAuditsMainComponent implements OnInit {
         fromDate = auditFiltersFormEventArgs.fromDate,
           toDate = auditFiltersFormEventArgs.toDate;
 
-    if (fromDate && toDate) {
+    if (fromDate && toDate 
+    && fromDate.momentObj && toDate.momentObj) {
       this.auditService.getCompletedAudits(fromDate.momentObj.format('x'),
        toDate.momentObj.format('x'))
         .subscribe(response => {
