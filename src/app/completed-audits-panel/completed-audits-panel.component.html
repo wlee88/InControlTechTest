@@ -17,6 +17,10 @@
           </tr>
         </tbody>
       </table>
+
+      <div *ngIf="completedAudits && completedAudits.length == 0">
+        Sorry, no results found.
+      </div>
     </div>
   </div>
 </div>
