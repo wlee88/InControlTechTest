@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterContentInit, AfterViewInit, Output, EventEmitter, Input } from '@angular/core';
-import { CategoryService } from "app/services/category.service";
-import { CategoryResponseObject } from "app/services/category-response-object.interface"
-import { AuditService, AuditResponse } from "app/services/audit.service";
+import { CategoryService } from "app/audit/services/category.service";
+import { CategoryResponseObject } from "app/audit/services/category-response-object.interface"
+import { AuditService, AuditResponse } from "app/audit/services/audit.service";
 import { Moment } from "moment"
 import * as moment from 'moment';
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';

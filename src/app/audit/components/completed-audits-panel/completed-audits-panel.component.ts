@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuditItem } from "app/services/audit.service";
+import { AuditItem } from "app/audit/services/audit.service";
 
 @Component({
   selector: 'completed-audits-panel',

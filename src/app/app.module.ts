@@ -6,26 +6,22 @@ import { FormsModule }   from '@angular/forms';
 import { DatePickerModule } from 'ng2-datepicker';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { AuditService } from "app/services/audit.service";
-import { CompletedAuditsMainComponent } from './completed-audits-main/completed-audits-main.component';
-import { AuditPanelComponent } from './audit-panel/audit-panel.component';
-import { AuditFiltersPanelComponent } from './audit-filters-panel/audit-filters-panel.component';
-import { CompletedAuditsPanelComponent } from './completed-audits-panel/completed-audits-panel.component';
-import { CompletedAuditsPanelItemComponent } from './completed-audits-panel-item/completed-audits-panel-item.component';
-import { CategoryService } from "app/services/category.service";
-import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { AuditService } from "app/audit/services/audit.service";
+import { AuditNavPanelComponent } from 'app/audit/components/audit-nav-panel/audit-nav-panel.component';
+import { AuditFiltersPanelComponent } from 'app/audit/components/audit-filters-panel/audit-filters-panel.component';
+import { CompletedAuditsPanelComponent } from 'app/audit/components/completed-audits-panel/completed-audits-panel.component';
+import { CategoryService } from "app/audit/services/category.service";
+import { ProgressBarComponent } from './common/progress-bar/progress-bar.component';
 import { AppErrorHandler } from "app/common/app-error-handler";
+import { AuditNav } from 'app/audit/components/audit-nav/audit-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    CompletedAuditsMainComponent,
-    AuditPanelComponent,
+    AuditNav,
+    AuditNavPanelComponent,
     AuditFiltersPanelComponent,
     CompletedAuditsPanelComponent,
-    CompletedAuditsPanelItemComponent,
     ProgressBarComponent
      ],
   imports: [
@@ -34,7 +30,7 @@ import { AppErrorHandler } from "app/common/app-error-handler";
     HttpModule,
     DatePickerModule,
     RouterModule.forRoot([
-      { path: '', component: CompletedAuditsMainComponent }
+      { path: '', component: AuditNav }
     ])
   ],
   providers: [
